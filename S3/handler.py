@@ -48,14 +48,16 @@ def delete_objects(client, object_keys, bucket_name):
     """
     delete the objects referenced by the given keys and return errors if any
     """
-    key_to_be_deleted = [{'Key':i} for i in object_keys]
-    del_resp = client.delete_objects(
-        Bucket=bucket_name,
-        Delete={'Objects': key_to_be_deleted,}
-    )
-    print('files deleted')
-    print('Erros found: {0}'.format(del_resp.get('Errors')))
-    return del_resp.get('Errors')
+    if object_keys and len(object_keys) > 0:
+        key_to_be_deleted = [{'Key':i} for i in object_keys]
+        del_resp = client.delete_objects(
+            Bucket=bucket_name,
+            Delete={'Objects': key_to_be_deleted,}
+        )
+        print('files deleted')
+        print('Erros found: {0}'.format(del_resp.get('Errors')))
+        return del_resp.get('Errors')
+    return None
 
 def upload_file(client, file, bucket_name, output_prefix, file_name):
     """
