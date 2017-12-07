@@ -31,12 +31,12 @@ def main():
         print('New poll started ...')
         # s3 client
         s3_client = boto3.client('s3')
+        copied_object_keys = []
         try:
             # get the list of files available in the configure bitbucket/key
             s3_objects = s3.get_objects(s3_client, BUCKET_NAME, INPUT_PREFIX)
             # if files exists then copy them to the configured location then delete them
             if s3_objects.get('Contents'):
-                copied_object_keys = []
                 # get all the objects found in the bucket
                 for temp_obj in s3_objects.get('Contents'):
                     object_key = temp_obj.get('Key')
