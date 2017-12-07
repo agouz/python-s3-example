@@ -24,7 +24,7 @@ def get_object_json(client, bucket_name, key):
     # created earlier.
     response = client.get_object(Bucket=bucket_name, Key=key)
     print("Done")
-    return json.loads(response['Body'].read())
+    return json.loads(response['Body'].read().decode('utf-8'))
 
 def copy_object(client, object_list, bucket_name, output_prefix):
     """
