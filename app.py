@@ -5,7 +5,7 @@ import os
 import time
 import boto3
 import app_config as cfg
-import s3.handler as s3
+import S3.handler as s3
 import utils.handler as utils
 
 
