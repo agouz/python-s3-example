@@ -1,11 +1,13 @@
 """
 This module checks a S3 bucket for new files and reads them then writes them back to another bucket
 """
+import sys
+import traceback
 import os
 import time
 import boto3
 import app_config as cfg
-import s3.handler as s3
+import S3.handler as s3
 import utils.handler as utils
 
 
@@ -55,6 +57,7 @@ def main():
                 print('No new files found...')
         except Exception as error:
             print('run-time error:', error)
+            traceback.print_exc(file=sys.stdout)
         else:
             print('Processing finished, waiting for next poll...')
         time.sleep(WAIT_TIME)
