@@ -48,7 +48,7 @@ def delete_objects(client, object_keys, bucket_name):
     """
     delete the objects referenced by the given keys and return errors if any
     """
-    if object_keys and len(object_keys) > 0:
+    if object_keys:
         key_to_be_deleted = [{'Key':i} for i in object_keys]
         del_resp = client.delete_objects(
             Bucket=bucket_name,
