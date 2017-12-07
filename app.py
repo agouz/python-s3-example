@@ -50,7 +50,6 @@ def main():
                     s3.upload_file(s3_client, csv_data_file_name, BUCKET_NAME, OUTPUT_PREFIX,'{}.csv'.format(file_name_with_no_extension) )
                     # keep track of what we've to delete it afterwards
                     copied_object_keys.append(object_key)
-                s3.delete_objects(s3_client, copied_object_keys, BUCKET_NAME)
                 print('Emptying the tmp folder')
                 utils.empty_tmp_folder(TMP_FOLDER)
             else:
@@ -59,6 +58,7 @@ def main():
             print('run-time error:', error)
             traceback.print_exc(file=sys.stdout)
         else:
+            s3.delete_objects(s3_client, copied_object_keys, BUCKET_NAME)
             print('Processing finished, waiting for next poll...')
         time.sleep(WAIT_TIME)
 
