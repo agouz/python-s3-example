@@ -1,0 +1,18 @@
+[{
+  "some_key":"some_value",
+  "some_otherKey":"some_other_value",
+  "some_int_key": 1,
+  "some_bool_key": true
+},
+{
+  "some_key":"some_value_1",
+  "some_otherKey":"some_other_value_1",
+  "some_int_key": 2,
+  "some_bool_key": true
+},
+{
+  "some_key":"some_value_3",
+  "some_otherKey":"some_other_value_3",
+  "some_int_key": 3,
+  "some_bool_key": false
+}]
