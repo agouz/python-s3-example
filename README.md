@@ -17,20 +17,20 @@ input_folder_name | the name of the folder (key) that holds the input files | 'b
 output_folder_name | the name of the output folder to write the csv file to | 'superman/'
 poll_frequency | How long should the app waits between each poll, i.e: checking for new files | 3.0
 
-# Pre-requisite to running it locally (first time only)
+## How to run locally:
+### Pre-requisite to running it locally (first time only)
 pip virtualenv
 virtualenv venv
 
-# Install dependecies
+### Install dependecies
 source venv/bin/activate
 pip install -r requirements.txt
 
-## to run locally
-# Run the following only once
+### Run the following only once
 source venv/bin/activate
 
 
-# to run the app
+### to run the app
 First upload a sample json file in the configured input bukcet location and after running the app check that a new csv file is created in the configured target bucket location.
 
 1- Configure the application with the correct bitbucket folders for input and output in app_config.py
